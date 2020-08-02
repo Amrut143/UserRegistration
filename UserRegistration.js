@@ -3,7 +3,7 @@ const prompt = require('prompt-sync')();
 let namePattern = RegExp("^[A-Z]{1}[A-Za-z]{2}");
 let emailPattern = RegExp("^[0-9a-zA-Z]+([-_+.][0-9a-zA-Z]+)*@[0-9A-Za-z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{3})*$");
 let phonePattern = RegExp("^([+]?[0-9]{2}[ ]?)([6-9]{1})([0-9]{9})$");
-let passwordPattern = RegExp("(?=.*[A-Z]).{8,}");
+let passwordPattern = RegExp("(?=.*\\d)(?=.*[A-Z]).{8,}");
 
 function checkPattern(input, inputPattern) {
 		 return inputPattern.test(input);
