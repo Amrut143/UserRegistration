@@ -1,10 +1,28 @@
 const prompt = require('prompt-sync')();
 
-let firstNameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2}");
-const name = prompt('Enter first name:: ');
-let checkFirstName = firstNameRegex.test(name);
+let namePattern = RegExp("^[A-Z]{1}[A-Za-z]{2}");
 
-if(checkFirstName == true)
-   console.log(`Hey ${name}`);
-else
-   console.log("Enter valid name");
+function checkPattern(input, inputPattern) {
+		return inputPattern.test(input);
+}
+
+function getFirstName(){
+    let firstName = prompt("Enter First Name: ");
+    if(!checkPattern(firstName, namePattern)){
+        console.log("Enter Valid First Name");
+        getFirstName();
+    }
+    return;
+}
+
+function getLastName(){
+    let lastName = prompt("Enter Last Name: ");
+    if(!checkPattern(lastName, namePattern)){
+        console.log("Enter Valid Last Name");
+        getLastName();
+    }
+    return
+}
+
+getFirstName();
+getLastName();
